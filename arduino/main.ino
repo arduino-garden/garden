@@ -7,7 +7,7 @@
 // data pin of DHT11 sensors wired to pin 10 on Arduino
 // 10k pull up resistor (between data and 5V)
 
-#include "DHT.h"
+#include "DHT.h" //TODO: Describe in readme how to install this 
 
 float h, t;
 DHT DHT_sens(7, DHT11);           //datapin sensor to pin 10 Arduino
@@ -25,10 +25,6 @@ void setup()
   DHT_sens.begin();
 
   Serial.begin (9600);
-  //   Serial.println ("===============================================");
-  //   Serial.println ("Bare DHT11 temp-humidity sensor - June 30, 2017");
-  //   Serial.println ("===============================================");
-  //   Serial.println (" ");
 
 }
 
@@ -38,9 +34,11 @@ void loop() {
   h = DHT_sens.readHumidity();
   t = DHT_sens.readTemperature();
 
+  //TODO: extract two lines below in a method to return a single value 
   sensorValue = analogRead(sensorPin);
   percent = convertToPercent(sensorValue);
-
+  
+  //TODO: Extract below to method  
   Serial.print ("H: ");
   Serial.print (h, 2);                 // zero decimal
   Serial.print (" T: ");
