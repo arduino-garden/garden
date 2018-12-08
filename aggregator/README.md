@@ -1,4 +1,4 @@
-# garden-rest
+# garden-aggregator
 
 This is a REST API that will serve data for monitored plants in pots with different sensors
 
@@ -10,8 +10,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-```
-Give examples
+```none
+python3 - (sudo) apt install python3
+pip3 - (sudo) apt install pithon3-pip
+virtualenv - pip3 install virtualenv
+cassandra - http://www.apache.org/dyn/closer.lua/cassandra/3.11.3/apache-cassandra-3.11.3-bin.tar.gz
 ```
 
 ### Installing
@@ -21,7 +24,9 @@ A step by step series of examples that tell you how to get a development env run
 Say what the step will be
 
 ```
-Give the example
+virtualenv env
+source env/bin/activate - to activatate the virtual environment
+Install everything from dependencies.txt in the virtual environment
 ```
 
 And repeat
