@@ -1,23 +1,21 @@
 from fabric.api import task, run
 from cassandra.cluster import Cluster
 from cassandra.cqlengine import connection
+from cassandra.cqlengine.management import create_keyspace_simple, drop_keyspace
 from db.models import sync_all_tables
-from db.constants import db_keyspace
+from db.constants import db_keyspace, replication_factor
 
 
 @task
 def reset():
     print('Connecting to cluster')
-    cluster = Cluster(['127.0.0.1'], port=9042)
-    session = cluster.connect()
-
-    createKeySpace(session)
+    connection.setup(['127.0.0.1'], db_keyspace, protocol_version=3)
+    createKeySpace()
     sync_all_tables()
 
 
-def createKeySpace(session):
+def createKeySpace():
     print('Dropping existing keyspace')
-    session.execute("DROP KEYSPACE IF EXISTS " + db_keyspace)
+    drop_keyspace(db_keyspace)
     print('Creating keyspace for project')
-    session.execute(
-        "CREATE KEYSPACE " + db_keyspace + " WITH REPLICATION={'class': 'NetworkTopologyStrategy','datacenter1': 1}")
+    create_keyspace_simple(db_keyspace, replication_factor=replication_factor)

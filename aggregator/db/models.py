@@ -17,9 +17,7 @@ __module_name = __name__
 def all_models():
     current_module = sys.modules[__module_name]
     for name, obj in inspect.getmembers(current_module):
-        print(str(obj))
         if inspect.isclass(obj) and 'db.models' in str(obj):
-            print(str(obj))
             yield obj
 
 
@@ -30,4 +28,4 @@ def truncate_tables():
 
 def sync_all_tables():
     for clazz in all_models():
-        sync_table(clazz, [db_keyspace], ['127.0.0.1:9042'])
+        sync_table(clazz)
