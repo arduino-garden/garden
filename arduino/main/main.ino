@@ -24,23 +24,26 @@ void loop() {
   sensorValue = analogRead(DHTPin);
   percentSoilMoist = convertToPercent(sensorValue);
   
-  //TODO: Extract below to method  
-  Serial.print ("H: ");             // Humidity
-  Serial.print (h);                 // Printing humidity value from DHT sensor
-  Serial.print (" T: ");            // Temperature
-  Serial.print (t);                 // Printing temperature value from DHT sensor
-
-  Serial.print(" Analog Value: ");
-  Serial.print(sensorValue);
-  Serial.print(" SM: ");            // Soil Moisture 
-  Serial.print(percentSoilMoist);   // Printing Soil Moisture value in percents from Soil Moisture sensor
-  Serial.print("%");
-
-  Serial.print(" Sunlight Value: "); // Sunlight value
-  Serial.println(analogRead(resistorPin)); // Printing Sunlight value from photoresistor
+  send_data();
 
   // delay of one second
   delay(1000);
+}
+
+void send_data(){
+  Serial.print ("H:");             // Humidity
+  Serial.print (h);                 // Printing humidity value from DHT sensor
+  Serial.print (" T:");            // Temperature
+  Serial.print (t);                 // Printing temperature value from DHT sensor
+
+  Serial.print(" SMV:");
+  Serial.print(sensorValue);
+  Serial.print(" SMP:");            // Soil Moisture 
+  Serial.print(percentSoilMoist);   // Printing Soil Moisture value in percents from Soil Moisture sensor
+  Serial.print("%");
+
+  Serial.print(" SL:"); // Sunlight value
+  Serial.println(analogRead(resistorPin)); // Printing Sunlight value from photoresistor
 }
 
 int convertToPercent(int value)

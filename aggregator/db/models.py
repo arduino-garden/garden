@@ -7,8 +7,24 @@ import inspect
 
 
 class Plant(Model):
+    __table_name__ = "plants"
     id = columns.UUID(primary_key=True)
     name = columns.Text()
+
+
+class Pot(Model):
+    __table_name__ = "pots"
+    id = columns.UUID(primary_key=True)
+
+
+class Measurement(Model):
+    __table_name__ = "measurements"
+    id = columns.UUID(primary_key=True)
+    event_timestamp = columns.BigInt()
+    temperature = columns.Integer()
+    air_moisture = columns.Integer()
+    soil_moisture = columns.Integer()
+    light = columns.Integer()
 
 
 __module_name = __name__
@@ -29,3 +45,6 @@ def truncate_tables():
 def sync_all_tables():
     for clazz in all_models():
         sync_table(clazz)
+
+
+__table_name__

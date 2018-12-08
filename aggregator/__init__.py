@@ -7,11 +7,8 @@ s = [0]
 while True:
     read_serial = ser.readline()
 
-    # split -> json
-
-    # print read_serial
-
     # write to file with utc timestamp
     if read_serial:
-        print(read_serial)
+        entries = read_serial.split()
+        print(str(entries[0]))
         break
