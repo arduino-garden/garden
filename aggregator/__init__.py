@@ -1,14 +1,16 @@
 import serial
 import sys
+from db.mappers import MeasurementMapper
+from db.utils import CassandraUtils
 
 ser = serial.Serial('/dev/ttyACM0', 9600)
-s = [0]
+CassandraUtils.init_connection()
 
 while True:
     read_serial = ser.readline()
 
-    # write to file with utc timestamp
     if read_serial:
-        entries = read_serial.split()
-        print(str(entries[0]))
-        break
+        measurement_mapper = MeasurementMapper()
+        measurement_entity = measurement_mapper.map_raw_input_to_entity(
+            read_serial)
+        measurement_entity.save()

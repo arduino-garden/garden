@@ -1,21 +1,20 @@
 from fabric.api import task, run
-from cassandra.cluster import Cluster
-from cassandra.cqlengine import connection
-from cassandra.cqlengine.management import create_keyspace_simple, drop_keyspace
-from db.models import sync_all_tables
-from db.constants import db_keyspace, replication_factor
+import os
+from db.utils import CassandraUtils
 
 
 @task
 def reset():
-    print('Connecting to cluster')
-    connection.setup(['127.0.0.1'], db_keyspace, protocol_version=3)
-    createKeySpace()
-    sync_all_tables()
+    CassandraUtils.reset_db()
 
 
-def createKeySpace():
-    print('Dropping existing keyspace')
-    drop_keyspace(db_keyspace)
-    print('Creating keyspace for project')
-    create_keyspace_simple(db_keyspace, replication_factor=replication_factor)
+@task
+def start():
+    os.system('sudo ./env/bin/python3 __init__.py')
+
+
+@task
+def install():
+    with open('./dependencies.txt', 'r') as dependencies_file:
+        for line in dependencies_file:
+            os.system(line)

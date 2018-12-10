@@ -8,17 +8,20 @@ import inspect
 
 class Plant(Model):
     __table_name__ = "plants"
+    __keyspace__ = db_keyspace
     id = columns.UUID(primary_key=True)
     name = columns.Text()
 
 
 class Pot(Model):
     __table_name__ = "pots"
+    __keyspace__ = db_keyspace
     id = columns.UUID(primary_key=True)
 
 
 class Measurement(Model):
     __table_name__ = "measurements"
+    __keyspace__ = db_keyspace
     id = columns.UUID(primary_key=True)
     event_timestamp = columns.BigInt()
     temperature = columns.Integer()
@@ -45,6 +48,3 @@ def truncate_tables():
 def sync_all_tables():
     for clazz in all_models():
         sync_table(clazz)
-
-
-__table_name__

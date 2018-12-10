@@ -26,7 +26,8 @@ Say what the step will be
 ```
 virtualenv env
 source env/bin/activate - to activatate the virtual environment
-Install everything from dependencies.txt in the virtual environment
+pip install fabric3
+fab install
 ```
 
 And repeat
