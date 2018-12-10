@@ -127,7 +127,7 @@ export default class ZoomableChart extends React.Component {
               </li>
             </ul>
           ) : (
-            <span>Please zoom!</span>
+            <span>N/A</span>
           )}
         </div>
       </div>
