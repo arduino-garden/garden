@@ -18,3 +18,13 @@ def install():
     with open('./dependencies.txt', 'r') as dependencies_file:
         for line in dependencies_file:
             os.system(line)
+
+
+@task
+def test():
+    pass
+
+
+@task
+def lint():
+    pass

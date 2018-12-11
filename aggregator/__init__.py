@@ -14,3 +14,4 @@ while True:
         measurement_entity = measurement_mapper.map_raw_input_to_entity(
             read_serial)
         measurement_entity.save()
+        print('measurement saved')

@@ -10,7 +10,7 @@ class CassandraUtils():
     @staticmethod
     def reset_db():
         print('Connecting to cluster')
-        connection.setup(['127.0.0.1'], db_keyspace, protocol_version=3)
+        connection.setup(['127.0.0.1'], 'system', protocol_version=3)
         print('Dropping existing keyspace')
         drop_keyspace(db_keyspace)
         print('Creating keyspace for project')

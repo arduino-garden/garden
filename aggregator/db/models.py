@@ -24,8 +24,8 @@ class Measurement(Model):
     __keyspace__ = db_keyspace
     id = columns.UUID(primary_key=True)
     event_timestamp = columns.BigInt()
-    temperature = columns.Integer()
-    air_moisture = columns.Integer()
+    air_temperature = columns.Integer()
+    air_humidity = columns.Integer()
     soil_moisture = columns.Integer()
     light = columns.Integer()
 
