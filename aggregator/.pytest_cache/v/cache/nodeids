@@ -1,0 +1,3 @@
+[
+  "src/tests/db/test_mappers.py::TestMeasurementMapper::test_measurement_mapper_success"
+]

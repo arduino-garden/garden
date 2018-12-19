@@ -1,8 +1,8 @@
 from cassandra.cluster import Cluster
 from cassandra.cqlengine import connection
 from cassandra.cqlengine.management import create_keyspace_simple, drop_keyspace, execute
-from db.models import sync_all_tables
-from db.constants import db_keyspace, replication_factor
+from src.db.models import sync_all_tables
+from src.db.constants import db_keyspace, replication_factor
 
 
 class CassandraUtils():

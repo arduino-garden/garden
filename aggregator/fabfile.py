@@ -1,6 +1,6 @@
 from fabric.api import task, run
 import os
-from db.utils import CassandraUtils
+from src.db.utils import CassandraUtils
 
 
 @task
@@ -10,7 +10,7 @@ def reset():
 
 @task
 def start():
-    os.system('sudo ./env/bin/python3 __init__.py')
+    os.system('sudo ./env/bin/python3 ./src/start.py')
 
 
 @task
@@ -22,9 +22,10 @@ def install():
 
 @task
 def test():
-    pass
+    os.system('python -m pytest')
+    # os.system('coverage report -m')
 
 
 @task
 def lint():
-    pass
+    os.system('pylint src/')

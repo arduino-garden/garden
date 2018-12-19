@@ -3,3 +3,6 @@ pip install pep8
 pip install autopep8
 pip install fabric3
 pip install cassandra-driver
+pip install pytest
+pip install coverage
+pip install pylint

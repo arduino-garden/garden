@@ -13,6 +13,7 @@ What things you need to install the software and how to install them
 ```none
 python3 - (sudo) apt install python3
 pip3 - (sudo) apt install pithon3-pip
+pytest - (sudo) apt install python-pytest
 virtualenv - pip3 install virtualenv
 cassandra - http://www.apache.org/dyn/closer.lua/cassandra/3.11.3/apache-cassandra-3.11.3-bin.tar.gz
 ```
@@ -28,12 +29,13 @@ virtualenv env
 source env/bin/activate - to activatate the virtual environment
 pip install fabric3
 fab install
+fab reset
 ```
 
-And repeat
+### Starting
 
 ```
-until finished
+fab start
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
@@ -47,7 +49,7 @@ Explain how to run the automated tests for this system
 Explain what these tests test and why
 
 ```
-Give an example
+fab test
 ```
 
 ### And coding style tests
@@ -74,11 +76,12 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Bozhidar Gevechanov**
+* **Didi Milikina**
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 

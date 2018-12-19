@@ -1,7 +1,7 @@
 from cassandra.cqlengine import columns, connection
 from cassandra.cqlengine.models import Model
 from cassandra.cqlengine.management import sync_table
-from db.constants import db_keyspace
+from src.db.constants import db_keyspace
 import sys
 import inspect
 
