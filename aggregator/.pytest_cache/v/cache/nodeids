@@ -1,5 +1,10 @@
 [
+  "src/tests/db/test_mappers.py::TestMeasurementMapper::test_map_measurement_data_to_entity_no__sensor_values_matching",
+  "src/tests/db/test_mappers.py::TestMeasurementMapper::test_map_measurement_data_to_entity_no_sensor_values",
+  "src/tests/db/test_mappers.py::TestMeasurementMapper::test_map_measurement_data_to_entity_success",
+  "src/tests/db/test_mappers.py::TestMeasurementMapper::test_map_measurement_data_to_entity_success_with_exesive_fields",
   "src/tests/db/test_mappers.py::TestMeasurementMapper::test_map_raw_input_to_entity_no__sensor_values_matching",
+  "src/tests/db/test_mappers.py::TestMeasurementMapper::test_map_raw_input_to_entity_no_sensor_values",
   "src/tests/db/test_mappers.py::TestMeasurementMapper::test_map_raw_input_to_entity_success",
   "src/tests/db/test_mappers.py::TestMeasurementMapper::test_map_raw_input_to_entity_success_with_exesive_fields"
 ]
