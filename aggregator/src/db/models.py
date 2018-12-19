@@ -9,20 +9,20 @@ import inspect
 class Plant(Model):
     __table_name__ = "plants"
     __keyspace__ = db_keyspace
-    id = columns.UUID(primary_key=True)
+    plant_id = columns.UUID(primary_key=True)
     name = columns.Text()
 
 
 class Pot(Model):
     __table_name__ = "pots"
     __keyspace__ = db_keyspace
-    id = columns.UUID(primary_key=True)
+    pot_id = columns.UUID(primary_key=True)
 
 
 class Measurement(Model):
     __table_name__ = "measurements"
     __keyspace__ = db_keyspace
-    id = columns.UUID(primary_key=True)
+    measurement_id = columns.UUID(primary_key=True)
     event_timestamp = columns.BigInt()
     air_temperature = columns.Integer()
     air_humidity = columns.Integer()
