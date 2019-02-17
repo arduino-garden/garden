@@ -15,7 +15,6 @@ def start_aggregator():
 
 @task
 def start_rest():
-    os.system('export FLASK_APP=src/rest_start.py')
     os.system('flask run')
 
 
