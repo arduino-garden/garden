@@ -1,4 +1,3 @@
-from cassandra.cluster import Cluster
 from cassandra.cqlengine import connection
 from cassandra.cqlengine.management import create_keyspace_simple, drop_keyspace, execute
 from src.db.models import sync_all_tables

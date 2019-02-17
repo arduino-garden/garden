@@ -15,6 +15,8 @@ class MeasurementMapper():
         measurement = Measurement()
         measurement.measurement_id = uuid.uuid4()
         measurement.event_timestamp = time.time()
+        measurement.pot_id = uuid.uuid4()
+        measurement.plant_id = uuid.uuid4()
         self._map_measurement_data_to_entity(measurement_data, measurement)
 
         return measurement
@@ -32,3 +34,14 @@ class MeasurementMapper():
                 measurement.soil_moisture = int(float(sensor_value))
             if sensor_acronym == LIGHT:
                 measurement.light = int(float(sensor_value))
+
+    def to_dict(self, measurement):
+        measurement_dict = dict()
+        measurement_dict["measurement_id"] = str(measurement.measurement_id),
+        measurement_dict["soil_moisture"] = measurement.soil_moisture
+        measurement_dict["air_humidity"] = measurement.air_humidity
+        measurement_dict["air_temperature"] = measurement.air_temperature
+        measurement_dict["light"] = measurement.light
+        measurement_dict["event_timestamp"] = measurement.event_timestamp
+
+        return measurement_dict

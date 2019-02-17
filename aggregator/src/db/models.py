@@ -28,6 +28,8 @@ class Measurement(Model):
     air_humidity = columns.Integer()
     soil_moisture = columns.Integer()
     light = columns.Integer()
+    plant_id = columns.UUID()
+    pot_id = columns.UUID()
 
 
 __module_name = __name__
