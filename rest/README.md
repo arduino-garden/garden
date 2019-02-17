@@ -21,7 +21,8 @@ A step by step series of examples that tell you how to get a development env run
 Say what the step will be
 
 ```
-Give the example
+go get github.com/gocql/gocql
+go get github.com/scylladb/gocqlx
 ```
 
 And repeat
