@@ -12,9 +12,9 @@ What things you need to install the software and how to install them
 
 ```none
 python3 - (sudo) apt install python3
-pip3 - (sudo) apt install pithon3-pip
+pip3 - (sudo) apt install python3-pip
 pytest - (sudo) apt install python-pytest
-virtualenv - pip3 install virtualenv
+virtualenv - (sudo) apt install virtualenv
 cassandra - http://www.apache.org/dyn/closer.lua/cassandra/3.11.3/apache-cassandra-3.11.3-bin.tar.gz
 ```
 
@@ -25,7 +25,7 @@ A step by step series of examples that tell you how to get a development env run
 Say what the step will be
 
 ```
-virtualenv env
+virtualenv -p python3 env
 ```
 
 Copy the following: ```export FLASK_APP="$VIRTUAL_ENV/../src/rest_start.py"``` after the ```export VIRTUAL_ENV``` in env/bin/activate
