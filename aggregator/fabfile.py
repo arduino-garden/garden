@@ -9,8 +9,14 @@ def reset():
 
 
 @task
-def start():
+def start_aggregator():
     os.system('sudo ./env/bin/python3 ./src/start.py')
+
+
+@task
+def start_rest():
+    os.system('export FLASK_APP=src/rest_start.py')
+    os.system('flask run')
 
 
 @task

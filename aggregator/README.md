@@ -6,7 +6,7 @@ This is a REST API that will serve data for monitored plants in pots with differ
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+## Prerequisites
 
 What things you need to install the software and how to install them
 
@@ -18,7 +18,7 @@ virtualenv - pip3 install virtualenv
 cassandra - http://www.apache.org/dyn/closer.lua/cassandra/3.11.3/apache-cassandra-3.11.3-bin.tar.gz
 ```
 
-### Installing
+## Installing
 
 A step by step series of examples that tell you how to get a development env running
 
@@ -26,19 +26,34 @@ Say what the step will be
 
 ```
 virtualenv env
+```
+
+Copy the following: ```export FLASK_APP="$VIRTUAL_ENV/../src/rest_start.py"``` after the ```export VIRTUAL_ENV``` in env/bin/activate
+
+
+```
 source env/bin/activate - to activatate the virtual environment
 pip install fabric3
 fab install
 fab reset
 ```
 
-### Starting
+## Starting aggregator
+
+First start cassandra
 
 ```
-fab start
+fab start_aggregator
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+## Starting rest server
+
+First start cassandra
+
+```
+fab start_rest
+```
+
 
 ## Running the tests
 
